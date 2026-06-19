@@ -17,11 +17,23 @@ from accounts
 group by accounttype
 order by Total_Balance ASC;
 
-SELECT 
-    AccountType,
-    SUM(Balance) AS TotalBalance
+select * from transactions;
+select TransactionType, sum(amount) as Total_Ammount
+from transactions
+group by TransactionType;
+
+SELECT AccountType, SUM(Balance) AS TotalBalance
 FROM Accounts
 GROUP BY AccountType
 HAVING SUM(Balance) > 25000;
 
- 
+select * from transactions ;
+select TransactionType, sum(amount) as Withdrawal_Amount
+from transactions
+where transactiontype = "withdrawal";
+
+select * from accounts;
+select Accounttype, sum(balance) as Total_Balance
+from accounts
+group by accounttype
+having accounttype in("Savings", "Current");
